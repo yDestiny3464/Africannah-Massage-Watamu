@@ -1,0 +1,154 @@
+/* Africannah Massage Watamu - styles.css
+   Colours: edit the variables in :root. Mobile-first; breakpoints at 700px and 960px. */
+:root{
+  --sand:#E9DCC0; --cream:#F4EBD6; --taupe:#B9A892; --mocha:#7A6652; --ink:#1B1511;
+  --wa:#25D366; --wa-dark:#128C4A;
+  --head:"Playfair Display",Georgia,"Times New Roman",serif;
+  --body:"Quicksand",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--body);color:var(--ink);background:var(--sand);line-height:1.65;font-size:1.0625rem;overflow-x:hidden;padding-bottom:76px}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--head);line-height:1.1;font-weight:500}
+h1{font-size:clamp(2.8rem,12vw,5.5rem);letter-spacing:.01em}
+h2{font-size:clamp(1.9rem,6vw,2.8rem);margin-bottom:.6rem}
+h3{font-size:1.4rem;margin-bottom:.4rem}
+.wrap{width:min(1100px,100% - 2rem);margin-inline:auto}
+section{padding:clamp(3rem,8vw,5.5rem) 0}
+.eyebrow{font-size:.8rem;letter-spacing:.28em;text-transform:uppercase;font-weight:700;color:var(--mocha)}
+.lead{color:var(--mocha);max-width:60ch}
+.center{text-align:center}.center .lead{margin-inline:auto}
+
+/* paper texture */
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse at 20% 10%,rgba(255,255,255,.35),transparent 55%),
+  repeating-linear-gradient(115deg,rgba(122,102,82,.035) 0 2px,transparent 2px 7px)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:52px;padding:.8rem 1.6rem;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid transparent;cursor:pointer;font-size:1rem;transition:transform .2s,box-shadow .2s,background .2s}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.btn-wa{background:var(--wa);color:#0b2e17;box-shadow:0 6px 18px rgba(18,140,74,.3)}
+.btn-wa:hover{background:#1ebe5b;transform:translateY(-2px)}
+.btn-ghost{border-color:var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--ink);color:var(--cream)}
+.btn-sm{min-height:48px;padding:.5rem 1.2rem}
+.btn svg{width:22px;height:22px;flex:none}
+.pulse{animation:pulse 2.6s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(233,220,192,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--taupe)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:.75rem;min-height:64px}
+.brand{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;text-decoration:none;line-height:1.3}
+nav ul{display:none;list-style:none;gap:1.6rem}
+nav a{text-decoration:none;font-weight:600}
+nav a:hover{text-decoration:underline}
+.menu-btn{background:none;border:2px solid var(--ink);border-radius:10px;width:48px;height:48px;font-size:1.4rem;cursor:pointer}
+.mobile-nav{display:none;background:var(--cream);border-top:1px solid var(--taupe)}
+.mobile-nav.open{display:block}
+.mobile-nav a{display:block;padding:1rem 1.25rem;text-decoration:none;font-weight:700;border-bottom:1px solid var(--taupe)}
+.head-cta{display:none}
+
+/* hero */
+.hero{padding-top:2rem}
+.hero-grid{display:grid;gap:2rem;align-items:center}
+.hero p.sub{font-family:var(--head);font-size:1.5rem;margin:1rem 0 .4rem}
+.hero .actions{display:flex;flex-direction:column;gap:.8rem;margin-top:1.6rem}
+.frame{border:10px solid var(--taupe);border-radius:var(--radius);background:var(--taupe);overflow:hidden;box-shadow:0 10px 30px rgba(27,21,17,.15)}
+.frame img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5;background:var(--taupe)}
+.trust{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;margin-top:1.4rem;font-weight:600;color:var(--mocha);font-size:.95rem}
+
+/* services */
+#services{background:var(--cream)}
+.cards{display:grid;gap:1.4rem;margin-top:2rem}
+.card{background:var(--sand);border:1px solid var(--taupe);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+.card img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--taupe)}
+.card .body{padding:1.2rem 1.3rem 1.4rem;display:flex;flex-direction:column;gap:.7rem;flex:1}
+.card p{color:var(--mocha)}
+.card .btn{margin-top:auto}
+.note{margin-top:1.6rem;text-align:center;font-weight:700}
+
+/* offer */
+.offer{display:grid;place-items:center}
+.badge{width:min(340px,100%);aspect-ratio:1;border-radius:50%;background:var(--cream);border:3px dashed var(--taupe);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;padding:2rem;text-align:center}
+.badge h2{margin:0;font-size:2.2rem}
+
+/* steps */
+.steps{display:grid;gap:1.2rem;margin-top:2rem;counter-reset:s}
+.step{background:var(--cream);border-radius:var(--radius);padding:1.4rem;border:1px solid var(--taupe);text-align:center}
+.step .ico{width:58px;height:58px;border-radius:50%;background:var(--ink);color:var(--cream);display:grid;place-items:center;margin:0 auto .8rem;font-family:var(--head);font-size:1.5rem}
+
+/* about */
+#about{background:var(--cream)}
+.about-grid{display:grid;gap:2rem;align-items:center}
+.about-grid .frame img{aspect-ratio:1}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;margin-top:2rem}
+.gallery .frame{border-width:6px}
+.gallery img{aspect-ratio:1}
+.gallery figcaption{font-size:.8rem;padding:.4rem .6rem;background:var(--cream);color:var(--mocha)}
+
+/* faq */
+#faq{background:var(--cream)}
+details{background:var(--sand);border:1px solid var(--taupe);border-radius:14px;padding:1rem 1.2rem;margin-top:.8rem}
+summary{font-weight:700;cursor:pointer;min-height:32px}
+details p{margin-top:.6rem;color:var(--mocha)}
+
+/* map */
+.map{margin-top:1.6rem;border:8px solid var(--taupe);border-radius:var(--radius);overflow:hidden}
+.map iframe{display:block;width:100%;height:340px;border:0}
+.find-actions{display:flex;flex-direction:column;gap:.8rem;margin-top:1.2rem}
+
+/* final cta + footer */
+.final{background:var(--ink);color:var(--cream);text-align:center}
+.final .lead{color:var(--taupe);margin-inline:auto}
+.final .btn-ghost{border-color:var(--cream);color:var(--cream)}
+.final .btn-ghost:hover{background:var(--cream);color:var(--ink)}
+.final .actions{display:flex;flex-direction:column;gap:.8rem;align-items:center;margin-top:1.5rem}
+footer{background:#120d0a;color:var(--taupe);padding:2rem 0;font-size:.92rem;text-align:center}
+footer a{color:var(--cream)}
+
+/* floating bar (mobile) */
+.float{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:.7rem 1rem calc(.7rem + env(safe-area-inset-bottom));background:linear-gradient(to top,rgba(233,220,192,.98) 70%,rgba(233,220,192,0))}
+.float .btn{width:100%;font-size:1.1rem}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}.pulse{animation:none}.reveal{opacity:1;transform:none;transition:none}.btn{transition:none}
+}
+
+/* tablet+ */
+@media (min-width:700px){
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .gallery{grid-template-columns:repeat(3,1fr)}
+  .hero .actions,.find-actions,.final .actions{flex-direction:row}
+}
+@media (min-width:960px){
+  body{padding-bottom:0}
+  .menu-btn,.mobile-nav{display:none!important}
+  nav ul{display:flex}
+  .head-cta{display:inline-flex}
+  .hero-grid{grid-template-columns:1.1fr .9fr}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:.8fr 1.2fr}
+  .float{display:none}
+}
+
+/* header fit on small phones */
+.btn{white-space:nowrap}
+.bar .btn-sm{min-height:44px;padding:.4rem 1rem;font-size:.95rem}
+@media (max-width:380px){.brand{font-size:.7rem;letter-spacing:.14em}}
+
+/* keep photo frames at their intended ratios */
+.card img,.gallery img,.about-grid .frame img{height:auto}
+
+/* Sherry's portrait in a circle */
+.about-grid .frame{border-radius:50%;width:min(320px,80%);margin-inline:auto;aspect-ratio:1}
+.about-grid .frame img{aspect-ratio:1;height:100%;object-fit:cover;object-position:50% 35%}
